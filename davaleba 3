@@ -1,0 +1,204 @@
+/*
+დაწერეთ ფუნქცია რომელიც შეამოწმებს გადაცემული ტექსტი არის თუ არა პალინდრომი . 
+პალინდრომი არის სიტყვა რომელიც შებრუნებულ მდგომარეობაშიც იგივეა . მაგ. madam - მარცხნიდანაც და მარჯვნიდანაც ერთი და იგივეა(შებრუნებულიც და ჩვეულებრივადაც) .
+
+function palindrom(txt) {
+
+}
+
+*/
+
+function palindrom(txt) {
+   let reversedText1 = txt.split("").reverse().join("");
+   let reversedText = "";
+   for (let i = txt.length - 1; i >= 0; i--) {
+     reversedText += txt[i];
+   }
+   return reversedText === txt;
+  let result = true;
+   for (let i = 0; i < txt.length / 2; i++) {
+     console.log(txt[i], txt[txt.length - (i + 1)], "pairrrr");
+      result = false;
+   }
+   return result;
+}
+
+ console.log(palindrom("madam"));
+ console.log(palindrom("sad"));
+ console.log(palindrom("maddam"));
+
+//Task 2
+
+/*
+დაწერეთ ფუნქცია რომელიც დაგვიბრუნებს პირველ არაგამეორებადი ქარაქტერი/სიმბოლოს. 
+მაგალითად გვაქვს string 'bcskbrk' -> c - პირველი არაგამეორებადი ქარაქტერი არის 'c'
+'cbcbdde' -> 'e'
+'worsdorw' -> 's' 
+'worsdorws'-> 'd'
+
+
+*/
+
+ let testWord = "cbcbde";
+
+ console.log(testWord.indexOf("d"));
+function firstNotOccured(txt) {
+  
+   tempArr ['c','s',r]
+   let tempArr = [];
+   for (let i = 0; i < txt.length; i++) {
+     if (tempArr.includes(txt[i])) {
+     } else {
+       tempArr.push(txt[i]);
+    }
+   }
+
+  for (let i = 0; i < txt.length; i++) {
+    if (txt.indexOf(txt[i]) === txt.lastIndexOf(txt[i])) {
+      return txt[i];
+    }
+  }
+  return "all symbols are duplicated";
+}
+
+console.log(firstNotOccured("bcskbrk"));
+console.log(firstNotOccured("cbcbdde"));
+console.log(firstNotOccured("worsdorws"));
+
+/*
+Task 3 : 
+დაწერეთ ფუნქცია რომელიც გადაცემულ ტექსტის camelCase ში კონვერტაციას გააკეთებს
+camelize("sad midis Matarebeli") -> "sadMidisMatarebeli"
+
+*/
+
+ function wordToUpper(word) {
+  return word.charAt(0).toUpperCase() + word.substring(1);
+ }
+
+ function camelize(txt) {
+   let splittedText = txt.split(" ");
+   let camelizedText = splittedText[0];
+   for (let i = 1; i < splittedText.length; i++) {
+     camelizedText += " " + wordToUpper(splittedText[i]);
+   }
+   return camelizedText;
+}
+
+console.log(camelize("sad midis Matarebeli"));
+
+/*
+Task 4: 
+დაწერეთ ფუნქცია რომელიც დაგვიბრუნებს რიცხვს სწორი სუფიქსით , როგორიცაა 1st, 2nd, 3rd or 4th და ა.შ
+
+მაგ . normilize(121) -> '121st' 
+normilize(124) -> '124th' 
+normilize(33) -> '33rd' 
+    
+
+*/
+
+function normilize(num) {
+   let convert = "" + num;
+   let numLastChar = convert[convert.length - 1];
+  if (numLastChar === "1") {
+    return num + "st";
+  } else if (numLastChar === "2") {
+     return num + "nd";
+  } else if (numLastChar === "3") {
+    return num + "rd";
+  } else return num + "th";
+   let convertToNum = +num; //converts string to number
+   let lastDecimal = num % 10;
+   console.log(lastDecimal);
+   if (lastDecimal == 1) {
+     return "" + num + "st";
+  }
+}
+
+console.log(normilize("112"));
+
+//Task 5
+
+/*
+დაწერეთ ფუნქცია რომელსაც გადაეცემა მასივი და ეს ფუნქცია დაგვიბრუნებს
+ამ მასივში ყველაზე ხშირად გამოერებად ელემენტს და გამეორების რაოდენობას
+მაგალითად
+arr1=[3, 'a', 'a', 'a', 2, 3, 'a', 3, 'a', 2, 4, 9, 3];
+პროგრამამ უნდა დაგვიბრუნოს 'a - 5'
+უმჯობესია გამოიყენოთ reduce მეთოდი
+
+*/
+
+// Sat
+
+/*
+Task 6 : 
+დაწერეთ ფუნქცია რომელიც იღებს ორ მასივს და უნდა დაგვიბრუნოს 
+ამ ორი მასივის დამერჯილი მასივი , გაერთიანებული , არადუბლირებული მნიშვნელობებით .
+let array1 = [1, 2, 3];
+let array2 = [2, 30, 1];
+
+შედეგი უნდა იყოს : [1,2,3,30]
+
+*/
+
+let array1 = [1, 2, 3];
+let array2 = [2, 30, 1];
+
+[1, 2, 3, 30, 2, 1];
+[1, 2, 3, 30];
+let mergedArray = array1.concat(array2);
+let unique = new Set(mergedArray);
+
+ let resultArr = [];
+ for (let i = 0; i < mergedArray.length; i++) {
+   if (resultArr.indexOf(mergedArray[i]) === -1) {
+     resultArr.push(mergedArray[i]);
+  }
+}
+
+console.log(unique);
+
+/*
+Task 7 : 
+ფუნქციამ უნდა დააბრუნოს მასივი ისე როგორც კომენტარშია ნაჩვენები . 
+გამოიყენეთ map
+
+*/
+
+
+ function readyToPutInTheDOM(arr) {
+  return arr.map((el) => {
+     return `<h1>${el.name}</h1><h2>${el.age}</h2>`;
+   });
+ }
+console.log(
+   readyToPutInTheDOM([
+     {
+       name: "Angelina Jolie",
+       age: 80,
+     },
+    {
+       name: "Eric Jones",
+       age: 2,
+    },
+     {
+       name: "Paris Hilton",
+       age: 5,
+     },
+    {
+       name: "Kayne West",
+      age: 16,
+    },
+     {
+       name: "Bob Ziroll",
+       age: 100,     },
+   ])
+);
+
+ ["<h1>Angelina Jolie</h1><h2>80</h2>",
+ "<h1>Eric Jones</h1><h2>2</h2>",
+ "<h1>Paris Hilton</h1><h2>5</h2>",
+ "<h1>Kayne West</h1><h2>16</h2>",
+ "<h1>Bob Ziroll</h1><h2>100</h2>"]
